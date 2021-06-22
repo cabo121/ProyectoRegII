@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="p-3">
+	<br>
+	<center><h1>Noticias deportivas</h1><hr></center>
+	<div class="row">
+	<img src="{% static 'files/bannerDep.jpg' %}" height="350px"
+	    	width="930px">
+	</div><hr>
+
+	<form class="form-control">
+		
+		<div class="row">
+			
+				{% for deportes in docs_list %}
+				<div class=col-md-4>
+                    <br>
+                    <div class="card">
+                    	<div class="card-body">
+
+                    		<center><img src="{{ deportes.imagen.url }}" height="200" width="310"></center><br>
+
+					        <strong><p>{{ deportes.nombre }}</p></strong><hr>
+
+					        <p>{{ deportes.descripcion }}</p>
+
+					        <p>{{ deportes.fecha }}</p>
+
+					        <p>{{ deportes.fuente }}</p>
+					        
+		                    <br>   
+
+					        <p><a  class= "btn btn-primary btn-sm" href="{% url 'modificarDep' deportes.id  %}">Modificar</a></p>
+
+					        <p><a  class= "btn btn-danger btn-sm" href="{% url 'eliminarDep' deportes.id  %}">Eliminar</a></p>
+
+                    	</div>
+                    </div>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+			    		<p><a  class= "btn btn-primary btn-sm" href="{% url 'agregarDep' %}">Agregar</a></p>
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}

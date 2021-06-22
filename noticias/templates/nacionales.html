@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="p-3">
+	<br>
+	<center><h1>Noticias nacionales</h1><hr></center>
+	<div class="row">
+	<img src="{% static 'files/bannerNac.jpg' %}" height="350px"
+	    	width="930px">
+	</div><hr>
+
+	<form class="form-control">
+		
+		<div class="row">
+			
+				{% for nacionales in docs_list %}
+				<div class=col-md-4>
+                    <br>
+                    <div class="card">
+                    	<div class="card-body">
+
+                    		<center><img src="{{ nacionales.imagen.url }}" height="200" width="310"></center><br>
+
+					        <strong><p>{{ nacionales.nombre }}</p></strong><hr>
+
+					        <p>{{ nacionales.descripcion }}</p>
+
+					        <p>{{ nacionales.fecha }}</p>
+
+					        <p>{{ nacionales.fuente }}</p>
+					        
+		                    <br>   
+
+					        <p><a  class= "btn btn-primary btn-sm" href="{% url 'modificarNac' nacionales.id  %}">Modificar</a></p>
+
+					        <p><a  class= "btn btn-danger btn-sm" href="{% url 'eliminarNac' nacionales.id  %}">Eliminar</a></p>
+
+                    	</div>
+                    </div>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+			    		<p><a  class= "btn btn-primary btn-sm" href="{% url 'agregarNac' %}">Agregar</a></p>
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="jumbotron p-4">
+    <h1 class="titulo" style="text-align: center;  font-size: 50px;"><strong>Noticias.com</strong></h1>
+    <p class="lead" style="text-align: center;">Bienvenidos a nuestra pagina de noticias online</p>
+    <hr>
+
+    <div class="row">
+    	<img src="{% static 'files/banner.jpg' %}" height="400px"
+    	width="1100px">
+    </div>
+    <br><hr>
+
+    <div>
+        <h2>Las mejores fuentes de noticias solo aqui!!</h2><hr><br>
+
+        <div class = "row">
+            <div class = "col-md-3">
+                <img src="{% static 'files/logo1.png' %}" height="250px" width="250px">
+            </div>
+
+            <div class = "col-md-3">
+                <img src="{% static 'files/logo2.png' %}" height="250px" width="250px">
+            </div>
+
+            <div class = "col-md-3">
+                <img src="{% static 'files/logo3.jpg' %}" height="250px" width="250px">
+            </div>
+
+            <div class = "col-md-3">
+                <img src="{% static 'files/logo4.png' %}" height="250px" width="250px">
+            </div>
+        </div><hr>
+
+
+    </div><br>
+
+</div>
+
+{% endblock content %}
